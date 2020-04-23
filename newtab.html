@@ -1,102 +1,56 @@
 <html>
 <head>
 <title></title>
-<style>
-section {;
-	vertical-align: 50%;
-	font-family: sans-serif;
-	font-size: 150%;
-	width: 75%;
-	margin: 15% auto;
-}
-
-article {
-	box-shadow: 4px 4px 20px -1px rgba(48, 33, 33, 1);
-	-webkit-box-shadow: 4px 4px 20px -1px rgba(48, 33, 33, 1);
-	-moz-box-shadow: 4px 4px 20px -1px rgba(48, 33, 33, 1);
-	border-radius: 4px 4px 4px 4px;
-	-webkit-border-radius: 4px 4px 4px 4px;
-	-moz-border-radius: 4px 4px 4px 4px;
-	display: none;
-	padding: 50px;
-}
-
-section a {
-	display: block;
-	text-decoration: none;
-}
-
-section span {
-	display: block;
-}
-
-#title {
-	color: black;
-	border-bottom: 1px solid gray;
-	padding-bottom: 20px;
-	font-weight: bold;
-	margin-bottom: 30px;
-}
-
-#description {
-	color: #777;
-}
-
-#more {
-	color: #fff;
-	background: #098;
-	margin-top: 20px;
-	display: inline-block;
-	padding: 10px 20px;
-}
-
-.lds-ring {
-  /*display: inline-block;
-  position: relative;*/
-  width: 80px;
-  margin: auto;
-  height: 80px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border: 8px solid #999;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #999 transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-</style>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
 </head>
 <body>
 	<section>
-		<div class="lds-ring" id="loader"><div></div><div></div><div></div><div></div></div>
-		<article id="holder">
+		<div class="lds-ring" id="loader">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<article id="holder" class="card card-body bg-light">
 			<a href="" id="link" target="_blank"> <span id="title"></span> <span
-				id="description"></span> <span id="more">Read more...</span>
+				id="description"></span> <span id="more" class="btn btn-info">Read
+					more...</span>
 			</a>
 		</article>
 	</section>
+	<button type="button" id="interestsModalBtn" class="btn btn-danger"
+		data-toggle="modal" data-target="#interestsModal">Interests</button>
+	<div class="modal" tabindex="-1" role="dialog" id="interestsModal">
+		<form>
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">Interests</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<fieldset id="interests"></fieldset>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="saveBtn">Save
+							changes</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
 	<script src="newtab.js"></script>
 </body>
 </html>

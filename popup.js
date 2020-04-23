@@ -6,8 +6,6 @@ chrome.storage.sync.get('interests', function(data) {
 	let xhr = new XMLHttpRequest();
 	xhr.open('GET', 'https://chrome.grayfolk.net/api/interests', true);
 	xhr.responseType = 'json';
-	
-	console.log(data.interests);
 
 	xhr.onload = function(e) {
 		this.response.forEach((element) => {
